@@ -21,7 +21,7 @@ class LogUploadWorker(
         println("🚀 Ejecutando trabajo en segundo plano")
 
         return try {
-            // 👉 aquí iría tu lógica real:
+            //  aquí iría tu lógica real:
             // - enviar logs
             // - sincronizar Firebase
             // - actualizar datos
