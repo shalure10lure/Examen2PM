@@ -78,15 +78,18 @@ class PortafolioViewModel(
             )
             return
         }
-        getPortfolioUseCase { list ->
+        viewModelScope.launch {
 
-            val total = list.sumOf { it.amount }
+            getPortfolioUseCase().collect { list ->
 
-            state = state.copy(
-                deposits = list,
-                totalBalance = total,
-                isLoading = false
-            )
+                val total = list.sumOf { it.amount }
+
+                state = state.copy(
+                    deposits = list,
+                    totalBalance = total,
+                    isLoading = false
+                )
+            }
         }
     }
 

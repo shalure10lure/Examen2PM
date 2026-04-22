@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.ucb.primerproyecto.portafolio.domain.usecase.GetPortafolioUseCase
+import kotlinx.coroutines.flow.first
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -25,9 +26,9 @@ class LogUploadWorker(
             // - sincronizar Firebase
             // - actualizar datos
 
-            getPortafolioUseCase { lista ->
-                println("📦 depósitos recibidos: ${lista.size}")
-            }
+            val lista = getPortafolioUseCase().first()
+
+            println($$"📦 depositos recibidos: $${lista.size}")
 
             println("✅ Trabajo completado")
 

@@ -5,7 +5,7 @@ import com.ucb.primerproyecto.portafolio.domain.repository.RemoteConfigRepositor
 class CheckMaintenanceUseCase(
     private val repo: RemoteConfigRepository
 ) {
-    operator fun invoke(): Boolean {
+    suspend  operator fun invoke(): Boolean {
         return repo.isMaintenanceMode()
     }
 }
