@@ -43,5 +43,4 @@ val dataModule = module {
 
     singleOf(::DepositRepositoryImpl).bind<DepositRepository>()
     singleOf(::DepositFirebaseManager)
-
 }
