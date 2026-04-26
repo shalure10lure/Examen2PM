@@ -34,8 +34,7 @@ actual val platformModule = module {
     single { get<AppDatabase>().getAppConfigDao() } // <--- Agregado para que funcione el RemoteConfigRepository
 
     // Servicios de plataforma
-    single<LocalNotificationManager> { AndroidLocalNotificationManager(get()) }
-
+    single<LocalNotificationManager> { AndroidLocalNotificationManager(androidContext()) }
     // Registro del repositorio de eventos (Firebase + Room)
     single { AppEventRepositoryImpl(get()) }.bind<AppEventRepository>()
 }
